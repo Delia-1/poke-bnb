@@ -33,6 +33,13 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  Cloudinary.config do |config|
+    config.cloud_name = ENV['CLOUDINARY_CLOUD_NAME']
+    config.api_key = ENV['CLOUDINARY_API_KEY']
+    config.api_secret = ENV['CLOUDINARY_API_SECRET']
+    config.secure = true
+  end
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

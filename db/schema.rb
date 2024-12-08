@@ -10,8 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 0) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_08_122215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "pokemons", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.string "type"
+    t.string "main_power"
+    t.integer "level"
+    t.integer "age"
+    t.integer "sexe"
+    t.boolean "rented"
+    t.integer "price_per_day"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pokemons_on_user_id"
+  end
+
+  create_table "rentings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id", null: false
+    t.bigint "pokemon_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_rentings_on_pokemon_id"
+    t.index ["user_id"], name: "index_rentings_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "profile_picture_url"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "pokemons", "users"
+  add_foreign_key "rentings", "pokemons"
+  add_foreign_key "rentings", "users"
 end

@@ -1,0 +1,101 @@
+ <div class="container-carousel">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner" style="filter: grayscale(0%)">
+        <div class="carousel-item active carousel-picture">
+          <%= link_to pokemon_path(Art.find(4)) do %>
+          <%= image_tag Art.find(4).photo, class: "d-block w-100", alt: "..." %>
+          <% end %>
+          <p style="text-align: center;">
+            <a class="btn btn-ghost-carousel" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Interested?
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <%# <div class="card card-body" style="text-align: center;"> %>
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+              <%= link_to "<strong><i>#{Art.find(4).title}</strong></i> <br>is available!".html_safe, art_path(Art.find(4)), class: "paragraph-carousel" %>
+            </div>
+          </div>
+        </div>
+
+    <div class="carousel-item carousel-picture">
+          <%= link_to art_path(Art.find(2)) do %>
+          <%= image_tag Art.find(2).photo, class: "d-block w-100", alt: "..." %>
+          <% end %>
+          <p style="text-align: center;">
+            <a class="btn btn-ghost-carousel" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Interested?
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <%# <div class="card card-body" style="text-align: center;"> %>
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+              <%= link_to "<strong><i>#{Art.find(2).title}</strong></i> <br>is available!".html_safe, art_path(Art.find(2)), class: "paragraph-carousel" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-picture">
+          <%= link_to art_path(Art.find(8)) do %>
+          <%= image_tag Art.find(8).photo, class: "d-block w-100", alt: "..." %>
+          <% end %>
+          <p style="text-align: center;">
+            <a class="btn btn-ghost-carousel" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Interested?
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <%# <div class="card card-body" style="text-align: center;"> %>
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+              <%= link_to "<strong><i>#{Art.find(8).title}</strong></i> <br>is available!".html_safe, art_path(Art.find(8)), class: "paragraph-carousel" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item carousel-picture">
+          <%= link_to art_path(Art.find(9)) do %>
+          <%= image_tag Art.find(9).photo, class: "d-block w-100", alt: "..." %>
+          <% end %>
+          <p style="text-align: center;">
+            <a class="btn btn-ghost-carousel" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Interested?
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <%# <div class="card card-body" style="text-align: center;"> %>
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+              <%= link_to "<strong><i>#{Art.find(9).title}</strong></i> <br>is available!".html_safe, art_path(Art.find(9)), class: "paragraph-carousel" %>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carousel-item carousel-picture">
+          <%= link_to art_path(Art.find(1)) do %>
+          <%= image_tag Art.find(1).photo, class: "d-block w-100", alt: "..." %>
+          <% end %>
+          <p style="text-align: center;">
+            <a class="btn btn-ghost-carousel" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+              Interested?
+            </a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <%# <div class="card card-body" style="text-align: center;"> %>
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+              <%= link_to "<strong><i>#{Art.find(1).title}</strong></i> <br>is available!".html_safe, art_path(Art.find(1)), class: "paragraph-carousel" %>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
