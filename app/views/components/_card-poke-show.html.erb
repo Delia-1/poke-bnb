@@ -1,21 +1,51 @@
-<div class="d-flex align-items-stretch">
-  <div class="wrap-img d-flex align-items-center justify-content-center ">
-<%= cl_image_tag pokemon.image_url, width: 600, height: 600, gravity: :face, crop: :thumb, class:"img-poke" %>
+<div data-controller="toggle">
+
+  <div class="d-flex align-items-stretch">
+    <!-- Image Section -->
+    <div class="wrap-img d-flex align-items-center justify-content-center">
+      <div class="border border-5 border-warning rounded-5 m-3">
+        <%= cl_image_tag pokemon.image_url, width: 380, height: 380, gravity: :face, crop: :thumb, class: "img-poke" %>
+      </div>
+    </div>
+
+    <!-- Card Section -->
+    <div class="card border-5 border-warning rounded-5 m-3" style="width: 20rem; weight: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title">
+          <strong class="fs-2"><%= pokemon.name.upcase %></strong>
+        </h5>
+        <p class="card-text fs-4">
+          <strong>Price per day: </strong><%= pokemon.price_per_day %>$
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item fs-5"><strong>Level:</strong> <%= pokemon.level %></li>
+        <li class="list-group-item fs-5"><strong>Main power: </strong><%= pokemon.main_power %></li>
+        <li class="list-group-item fs-5"><strong>Age: </strong><%= pokemon.age %></li>
+        <li class="list-group-item fs-5"><strong>Sexe: </strong><%= pokemon.sexe %></li>
+      </ul>
+
+      <div class="card-body d-flex justify-content-around">
+        <!-- Back Link -->
+        <%= link_to pokemons_path, class: "bounce-on-hover" do %>
+          <%= render "components/logo-ball" %>
+        <% end %>
+
+        <!-- Toggle Button -->
+        <div class="bounce-on-hover">
+          <%# Toggle button commented out example %>
+          <%# <button data-action="click->toggle#fire" class="btn btn-warning"></button> %>
+          <div>
+            <%= render "components/logo-ball" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
-<div class="card" style="width: 36rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= pokemon.name %></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <!-- Togglable Form -->
+  <div data-toggle-target="togglableElement" class="d-none d-block">
+    <%= render "components/form-renting", pokemon: pokemon, renting: @renting %>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
-</div>
+
 </div>

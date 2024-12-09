@@ -10,11 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-white">
     <%= render "components/navbar" %>
-    <div class="container">
-
-    <%= yield %>
+    <div class="mt-3 mb-3">
+      <div class="container bg-danger border border-4 border-dark rounded-4 p-3" style="height: 100%;">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

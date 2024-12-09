@@ -1,10 +1,13 @@
 class PokemonsController < ApplicationController
   def index
     @pokemons = Pokemon.all
+    @pokemon = Pokemon.new
   end
 
   def show
     @pokemon = Pokemon.find(params[:id])
+    @renting = Renting.new
+    # @rentings = @pokemon.rentings.include(:user)
   end
 
   def new

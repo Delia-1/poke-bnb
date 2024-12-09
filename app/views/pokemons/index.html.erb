@@ -1,4 +1,11 @@
-<h1>Pokemons#index</h1>
-<p>Find me in app/views/pokemons/index.html.erb</p>
+<h2 class="text-center">My team: </h2>
+<div class="d-flex justify-content-around bg-white m-4 p-4 border border-dark border-1 rounded-4">
+  <% if current_user.rentings.any? %>
+  <% current_user.rentings.each do |renting| %>
+    <%= cl_image_tag renting.pokemon.image_url, crop: :thumb, gravity: :faces, height: 50, width: 50, class: "border border-3 border-danger rounded-circle bg-dark" %>
+  <% end %>
+<% end %>
+</div>
 
+<h2>Now Availables!</h2>
   <%= render "components/card-poke-index", pokemons: @pokemons %>

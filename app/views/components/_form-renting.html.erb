@@ -1,0 +1,7 @@
+<%# I want to create a simple-form to rent a pokemon in the pokemon show page, must have fields start and end-date %>
+
+<%= simple_form_for([pokemon, renting]) do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit %>
+<% end %>

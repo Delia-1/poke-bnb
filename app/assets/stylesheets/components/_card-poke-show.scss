@@ -1,0 +1,8 @@
+.bounce-on-hover {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.bounce-on-hover:hover {
+  transform: translateY(-10px);
+}

@@ -1,5 +1,20 @@
-<h1>Pokemons#show</h1>
-<p>Find me in app/views/pokemons/show.html.erb</p>
+
+<% if @pokemon.rentings.any? %>
+  <h2>My team</h2>
+  <div class="d-flex justify-content-around bg-white m-4 p-4 border border-dark border-1 rounded-4">
+    <% @pokemon.rentings.each do |renting| %>
+      <%= cl_image_tag renting.pokemon.image_url, crop: :thumb, gravity: :faces, height: 40, width: 40, class: "border border-3 border-danger rounded-4" %>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+<h2>Want to catch <%= @pokemon.name %>?</h2>
 
 
  <%= render "components/card-poke-show", pokemon: @pokemon %>
+ <%# <%= render "components/form-renting", rentings: @rentings %>
+
+
