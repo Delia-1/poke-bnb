@@ -24,10 +24,10 @@ user3 = User.create!(email: "test3@test.com", password: "123456", username: "Boo
 user4 = User.create!(email: "test4@test.com", password: "123456", username: "Délia", first_name:"Délia", last_name:"Knoep",)
 
 
-encoded_url = URI.encode(url)
+# encoded_url = URI.encode(url)
   # Step 1: Fetch the list of Pokémon
-  encoded_url = URI.encode(POKEAPI_BASE_URL)
-  URI.parse(encoded_url)
+  # encoded_url = URI.encode(POKEAPI_BASE_URL)
+  # URI.parse(encoded_url)
   list_response = URI.open(POKEAPI_BASE_URL).read
   list_data = JSON.parse(list_response)
 
