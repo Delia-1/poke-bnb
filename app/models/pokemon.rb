@@ -1,6 +1,6 @@
 class Pokemon < ApplicationRecord
   belongs_to :user
-  has_many :rentings
+  has_many :rentings, dependant: :destroy
   has_one_attached :photo
 
   enum sexe: { Female: 0, Male: 1}
