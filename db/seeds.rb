@@ -12,6 +12,7 @@ require 'json'
 
 POKEAPI_BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
 puts "destroying all"
+Renting.destroy_all
 Pokemon.destroy_all
 User.destroy_all
 
