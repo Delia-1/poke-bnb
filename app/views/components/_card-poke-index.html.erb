@@ -1,18 +1,21 @@
-
-
-<div class="cardgrids gap-3">
-  <% pokemons.each do |pokemon| %>
-    <div class="card-product">
-      <% if pokemon.image_url.present? %>
-        <%= link_to pokemon_path(pokemon) do %>
-          <%= cl_image_tag pokemon.image_url %>
-        <% end %>
-      <% end %>
-      <div class="card-product-infos text-decoration-none">
-        <h3 class="card-title paragraph-title"><%= pokemon.name %></h3>
-        <p><strong>Level:</strong> <%= pokemon.level %></p>
-        <p><strong>Booking price per day:</strong> <%= pokemon.price_per_day %> $</p>
+<div class="container">
+  <div class="row g-3">
+    <% pokemons.each do |pokemon| %>
+      <!-- Responsive column sizes: 12 on extra small screens, 6 on small, 4 on medium, 3 on large -->
+      <div class="col-12 col-sm-6 col-md-6 col-lg-2">
+        <div class="card h-100 border-0 shadow-sm" style="width: 12rem;">
+          <% if pokemon.image_url.present? %>
+            <%= link_to pokemon_path(pokemon), class: "text-decoration-none" do %>
+              <%= cl_image_tag pokemon.image_url, class: "card-img-top img-fluid", alt: pokemon.name %>
+            <% end %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><strong><%= pokemon.name %></strong></h5>
+            <p class="card-text mb-1"><strong>Level:</strong> <%= pokemon.level %></p>
+            <p class="card-text"><strong>Booking price per day:</strong> <%= pokemon.price_per_day %> $</p>
+          </div>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
