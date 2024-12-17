@@ -1,0 +1,28 @@
+// Map of Pokémon type colors
+$poke-colors: (
+  "normal": $poke-normal,
+  "fire": $poke-fire,
+  "fighting": $poke-fight,
+  "water": $poke-water,
+  "flying": $poke-flying,
+  "grass": $poke-grass,
+  "poison": $poke-poison,
+  "electric": $poke-electric,
+  "ground": $poke-ground,
+  "psychic": $poke-psychic,
+  "rock": $poke-rock,
+  "ice": $poke-ice,
+  "bug": $poke-bug,
+  "dragon": $poke-dragon,
+  "ghost": $poke-ghost,
+  "dark": $poke-dark,
+  "steel": $poke-steel,
+  "fairy": $poke-fairy
+);
+
+// Generate background classes
+@each $type, $color in $poke-colors {
+  .bg-poke-#{$type} {
+    background-color: $color !important;
+  }
+}

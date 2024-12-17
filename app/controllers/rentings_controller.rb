@@ -4,7 +4,8 @@ class RentingsController < ApplicationController
   before_action :set_renting, only: [:show, :edit]
 
   def index
-    @rentings = @Pokemon.rentings
+    #@rentings = @Pokemon.rentings
+    @rentings = current_user.rentings
   end
 
   def show

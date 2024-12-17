@@ -1,6 +1,10 @@
 class PokemonsController < ApplicationController
   def index
-    @pokemons = Pokemon.all
+    if params[:query].present?
+      @pokemons = Pokemon.search_by_name_and_main_type_and_main_power(params[:query])
+    else
+      @pokemons = Pokemon.all
+    end
     @pokemon = Pokemon.new
   end
 

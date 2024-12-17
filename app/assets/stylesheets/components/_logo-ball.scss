@@ -14,6 +14,10 @@ $black: #333333;
 }
 
 // Ball container to center the ball
+ball-container{
+  border: none;
+  background-color: transparent;
+}
 
 
 // Ball design
@@ -23,7 +27,7 @@ $black: #333333;
   width: 40px; // Reduced width
   height: 40px; // Reduced height
   border-radius: 50%;
-  background: $red;
+  background: transparent;
   border: 1.5px solid $black; // Scaled down border
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); // Adjusted shadow for smaller size
 

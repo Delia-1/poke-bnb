@@ -45,6 +45,7 @@ user4 = User.create!(email: "test4@test.com", password: "123456", username: "Dé
       name: details_data["name"],
       image_url: details_data["sprites"]["front_default"],
       main_power: details_data["abilities"][0]["ability"]["name"].capitalize, # First ability
+      main_type: details_data["types"][0]["type"]["name"].capitalize,
       level: rand(1..100), # Random level
       age: rand(1..20), # Random age
       sexe: [0, 1].sample, # Random gender (0: Female, 1: Male)

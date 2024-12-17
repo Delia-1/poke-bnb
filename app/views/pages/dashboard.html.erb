@@ -1,0 +1,19 @@
+<% if current_user.rentings.any? %>
+  <h2 class="text-center">My team: </h2>
+  <div class="d-flex justify-content-around bg-white m-4 p-4 border border-warning border-3 rounded-4">
+    <% current_user.rentings.each do |renting| %>
+<div data-bs-toggle="popover"
+     data-bs-placement="right"
+     data-bs-custom-class="custom-popover"
+     data-bs-title="Custom popover"
+     data-bs-content="This popover is themed via CSS variables.">
+        <%= cl_image_tag renting.pokemon.image_url,
+                         crop: :thumb,
+                         gravity: :faces,
+                         height: 50,
+                         width: 50,
+                         class: "border border-3 border-danger rounded-circle bg-dark" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

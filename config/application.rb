@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require 'devise'
-
+require 'pg_search'
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems

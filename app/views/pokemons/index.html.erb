@@ -1,24 +1,63 @@
 <h1>Hello young <%= current_user.first_name %></h1>
 
-<% if current_user.rentings.any? %>
-  <h2 class="text-center">My team: </h2>
-  <div class="d-flex justify-content-around bg-white m-4 p-4 border border-warning border-3 rounded-4">
-    <% current_user.rentings.each do |renting| %>
-<div data-bs-toggle="popover"
-     data-bs-placement="right"
-     data-bs-custom-class="custom-popover"
-     data-bs-title="Custom popover"
-     data-bs-content="This popover is themed via CSS variables.">
-        <%= cl_image_tag renting.pokemon.image_url,
-                         crop: :thumb,
-                         gravity: :faces,
-                         height: 50,
-                         width: 50,
-                         class: "border border-3 border-danger rounded-circle bg-dark" %>
+
+<p>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Types reminder
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="row">
+      <!-- First Column -->
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="bg-poke-normal list-group-item">Normal</li>
+          <li class=" bg-poke-fire list-group-item">Fire</li>
+          <li class="bg-poke-fighting list-group-item">Fighting</li>
+          <li class="list-group-item">Water</li>
+          <li class="list-group-item">Flying</li>
+          <li class="list-group-item">Grass</li>
+          <li class="list-group-item">Poison</li>
+          <li class="list-group-item">Electric</li>
+          <li class="list-group-item">Ground</li>
+        </ul>
       </div>
+      <!-- Second Column -->
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">Psychic</li>
+          <li class="list-group-item">Rock</li>
+          <li class="list-group-item">Ice</li>
+          <li class="list-group-item">Bug</li>
+          <li class="list-group-item">Dragon</li>
+          <li class="list-group-item">Ghost</li>
+          <li class="list-group-item">Dark</li>
+          <li class="list-group-item">Steel</li>
+          <li class="list-group-item">Fairy</li>
+          <li class="list-group-item">Stellar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: pokemons_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control me-3",
+            placeholder: "Type a Pokemon name or type"
+        %>
+      <%= link_to type: "submit" do %>
+        <%= render "components/logo-ball", style: "background-color: rgb(239 0 23 / 75%)"%>
+      <% end %>
     <% end %>
   </div>
-<% end %>
+</div>
+
 
 <h2>Now Availables!</h2>
 <%= render "components/card-poke-index", pokemons: @pokemons %>

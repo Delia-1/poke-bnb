@@ -216,6 +216,9 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     pg (1.5.9)
+    pg_search (2.3.7)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
     poke-api-v2 (0.1.1)
     popper_js (2.11.8)
     psych (5.2.1)
@@ -351,6 +354,7 @@ DEPENDENCIES
   jbuilder
   ostruct
   pg (~> 1.1)
+  pg_search
   poke-api-v2
   puma (>= 5.0)
   rails (~> 7.1.5)

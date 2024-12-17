@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to pokemons_path, class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
       <%= render "components/logo-ball" %>
     <% end %>
@@ -10,25 +10,22 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <%# if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
-              <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
+      <ul class="navbar-nav me-auto align-items-center d-flex">
+
+        <li class="nav-item active">
+          <h3><a class="nav-link text-danger" href="/dashboard">Rentings</a></h3>
+        </li>
+        <li class="nav-item ">
+          <h3><a class="nav-link text-danger" href="/dashboard">Memory</a></h3>
+        </li>
+         <li class="nav-item">
+          <img class="avatar dropdown-toggle border border-2 border-danger" id="navbarDropdown" data-bs-toggle="dropdown" data-bs-haspopup="true" data-bs-expanded="false" alt="Profile picture" src="/assets/profile-picture-67292d3595a8f583b2394b25344b2952183aff63908969586bf4959e5152be4c.png" aria-expanded="false">
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text" href="/users/sign_up">Sign up</a>
+            <a class="dropdown-item" href="/users/sign_in">Log in</a>
+            <a class="dropdown-item" data-turbo-method="delete" href="/users/sign_out">Log out</a>
+          </div>
+        </li>
       </ul>
     </div>
   </div>

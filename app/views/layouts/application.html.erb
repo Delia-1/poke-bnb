@@ -10,10 +10,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-white">
+  <body style="background-image: url('<%= image_path("map-bg") %>'); background-size: cover; background-repeat: no-repeat;">
+
     <%= render "components/navbar" %>
     <div class="mt-3 mb-3">
-      <div class="container bg-danger border border-4 border-warning rounded-4 p-3" style="height: 100%;">
+      <div class="container border border-4 border-dark rounded-4 p-3 " style="height: 100%; background-color: rgb(239 0 23 / 75%)">
         <%= yield %>
       </div>
     </div>
