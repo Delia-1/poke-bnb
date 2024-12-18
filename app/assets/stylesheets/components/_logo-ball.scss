@@ -21,7 +21,7 @@ ball-container{
 
 
 // Ball design
-// Ball design
+
 .ball {
   position: relative;
   width: 40px; // Reduced width
@@ -40,6 +40,15 @@ ball-container{
     background: $white;
     border-bottom-left-radius: 60px; // Scaled down radius
     border-bottom-right-radius: 60px; // Scaled down radius
+  }
+  .upper-half {
+    position: absolute;
+    top: 0;
+    height: 50%;       // Top half
+    width: 100%;       // Full width
+    background: $red;  // Red color
+    border-top-left-radius: 60px;   // Rounded corners
+    border-top-right-radius: 60px;  // Rounded corners
   }
 
   // Black horizontal band

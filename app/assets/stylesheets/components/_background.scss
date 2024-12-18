@@ -1,28 +1,82 @@
-// Map of Pokémon type colors
-$poke-colors: (
-  "normal": $poke-normal,
-  "fire": $poke-fire,
-  "fighting": $poke-fight,
-  "water": $poke-water,
-  "flying": $poke-flying,
-  "grass": $poke-grass,
-  "poison": $poke-poison,
-  "electric": $poke-electric,
-  "ground": $poke-ground,
-  "psychic": $poke-psychic,
-  "rock": $poke-rock,
-  "ice": $poke-ice,
-  "bug": $poke-bug,
-  "dragon": $poke-dragon,
-  "ghost": $poke-ghost,
-  "dark": $poke-dark,
-  "steel": $poke-steel,
-  "fairy": $poke-fairy
-);
+.poke-normal {
+  background-color: #9FA19F;
+}
 
-// Generate background classes
-@each $type, $color in $poke-colors {
-  .bg-poke-#{$type} {
-    background-color: $color !important;
-  }
+.poke-fire {
+  background-color: #E62829;
+}
+
+.poke-fight {
+  background-color: #FF8000;
+}
+
+
+.pale-green {
+  background-color: #ddffef;
+}
+
+
+.poke-flying {
+  background-color: #81b9ef;
+}
+
+.poke-poison {
+  background-color: #9141cb;
+}
+.poke-ground {
+  background-color: #915121;
+}
+
+.poke-rock {
+  background-color: #b6a136;
+}
+
+.poke-bug {
+  background-color: #91a119;
+}
+
+.poke-ghost {
+  background-color: #704170;
+}
+
+.poke-steel {
+  background-color: #60a1b8;
+}
+
+
+.poke-water {
+  background-color: #6890f0;
+}
+
+.poke-grass {
+  background-color: #78c850;
+}
+
+.poke-electric {
+  background-color: #f8d030;
+}
+
+.poke-psychic {
+  background-color: #f85888;
+}
+
+.poke-ice {
+  background-color: #3dcef3;
+}
+
+.poke-dragon {
+  background-color: #7038f8;
+}
+
+.poke-dark {
+  background-color: #705848;
+}
+
+.poke-fairy {
+  background-color: #ee99ac;
+}
+
+
+.list-group-item {
+  border: 3px solid rgb(9, 9, 9);
 }

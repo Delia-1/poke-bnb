@@ -1,0 +1,36 @@
+<div class="memory-game" data-controller="memory-game">
+  <!-- Click Counter and Score -->
+  <div class="score-board">
+    <p>Clicks: <span data-memory-game-target="clickCounter">0</span></p>
+    <p>Score: <span data-memory-game-target="score">0</span></p>
+  </div>
+
+  <!-- Game Grid -->
+  <div class="grid">
+    <% @cards.each_with_index do |pokemon, index| %>
+      <div class="card"
+          data-action="click->memory-game#flip"
+          data-pokemon-id="<%= pokemon.id %>"
+          data-index="<%= index %>"
+          data-memory-game-target="card">
+        <div class="card-face card-front">
+          <%= cl_image_tag pokemon.image_url, alt: pokemon.name.upcase %>
+        </div>
+        <div class="card-face card-back">
+          <%= render "components/verso-card-memory" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%#
+must established different grid in base of the level of the game and do the number of card
+  girds:
+    1. 4x4
+    2. 6x6
+    3. 8x8
+    4. 10x10
+must have a "recto/verso" effect when the card is clicked
+must have a "flip" effect when the card is clicked
+add the logic about the game %>

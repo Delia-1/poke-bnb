@@ -1,46 +1,7 @@
 <h1>Hello young <%= current_user.first_name %></h1>
 
+<%= render "components/background", pokemons: @pokemons %>
 
-<p>
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Types reminder
-  </a>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="row">
-      <!-- First Column -->
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="bg-poke-normal list-group-item">Normal</li>
-          <li class=" bg-poke-fire list-group-item">Fire</li>
-          <li class="bg-poke-fighting list-group-item">Fighting</li>
-          <li class="list-group-item">Water</li>
-          <li class="list-group-item">Flying</li>
-          <li class="list-group-item">Grass</li>
-          <li class="list-group-item">Poison</li>
-          <li class="list-group-item">Electric</li>
-          <li class="list-group-item">Ground</li>
-        </ul>
-      </div>
-      <!-- Second Column -->
-      <div class="col-md-6">
-        <ul class="list-group">
-          <li class="list-group-item">Psychic</li>
-          <li class="list-group-item">Rock</li>
-          <li class="list-group-item">Ice</li>
-          <li class="list-group-item">Bug</li>
-          <li class="list-group-item">Dragon</li>
-          <li class="list-group-item">Ghost</li>
-          <li class="list-group-item">Dark</li>
-          <li class="list-group-item">Steel</li>
-          <li class="list-group-item">Fairy</li>
-          <li class="list-group-item">Stellar</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <div class="row justify-content-center">

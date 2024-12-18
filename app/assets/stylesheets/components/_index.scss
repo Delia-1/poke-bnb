@@ -6,4 +6,5 @@
 @import "card-poke-index";
 @import "logo-ball";
 @import "card-poke-show";
-@import "background";
+@import 'background'; // Assuming _background.scss is in the same folder.
+@import "card-memory";
