@@ -14,16 +14,17 @@
 
     <!-- Card Section -->
     <div class="col-12 col-md-6 d-flex justify-content-center">
-      <div class="card border-3 border-dark rounded-5 w-75 p-3 bg-success" style="max-width: 24rem;">
-        <%# <div class="card-body bg-white text-center text-md-start"> %>
+      <div class="card border-3 border-dark rounded-5 w-100 bg-success" style="max-width: 24rem;">
+        <div class="card-body">
           <h5 class="card-title text-center text-md-start">
             <strong class="fs-2"><%= pokemon.name.upcase %></strong>
           </h5>
           <p class="card-text fs-4">
             <strong>Price per day: </strong><%= pokemon.price_per_day %>$
           </p>
-        <%# </div> %>
+        </div>
 
+        <!-- List Section -->
         <ul class="list-group list-group-flush bg-pale-green">
           <li class="list-group-item fs-5 bg-pale-green"><strong>Level:</strong> <%= pokemon.level %></li>
           <li class="list-group-item fs-5 bg-pale-green"><strong>Main power: </strong><%= pokemon.main_power %></li>
@@ -32,6 +33,7 @@
           <li class="list-group-item fs-5 bg-pale-green"><strong>Type: </strong><%= pokemon.main_type %></li>
         </ul>
 
+        <!-- Card Footer Actions -->
         <div class="card-body d-flex justify-content-around">
           <!-- Back Link -->
           <%= link_to pokemons_path, class: "bounce-on-hover text-decoration-none text-reset" do %>
@@ -41,10 +43,8 @@
 
           <!-- Toggle Button -->
           <div class="bounce-on-hover">
-            <div>
-              <%= render "components/logo-ball" %>
-              <p>Rent me!</p>
-            </div>
+            <%= render "components/logo-ball" %>
+            <p>Rent me!</p>
           </div>
         </div>
       </div>

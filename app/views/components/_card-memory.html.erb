@@ -1,9 +1,19 @@
-<div class="memory-game" data-controller="memory-game">
-  <!-- Click Counter and Score -->
-  <div class="score-board">
-    <p>Clicks: <span data-memory-game-target="clickCounter">0</span></p>
-    <p>Score: <span data-memory-game-target="score">0</span></p>
+<div class="memory-game" data-controller="memory-game toggle">
+  <!-- Scoreboard -->
+  <div class="score-board d-flex justify-content-around">
+    <div class="data-score">
+      <p>Clicks: <span data-memory-game-target="clickCounter">0</span></p>
+      <p>Score: <span data-memory-game-target="score">0</span></p>
+    </div>
+    <div class="result-container">
+
+    <p>All scores: <span data-memory-game-target="scoreList"></span></p>
+      <ul data-memory-game-target="leaderboard" class="list-leaderboard"></ul>
+    </div>
   </div>
+
+
+
 
   <!-- Game Grid -->
   <div class="grid">

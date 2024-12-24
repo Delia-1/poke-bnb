@@ -1,22 +1,21 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
- static targets = ["card", "clickCounter", "score"];
+ static targets = ["card", "clickCounter", "score", "scoreList", "leaderboard"];
 
   connect() {
-    console.log("MemoryGame controller connected!");
+    this.scoreList = JSON.parse(localStorage.getItem("leaderboard")) || [];
     this.flippedCards = [];
     this.lockBoard = false;
     this.clicks = 0;
     this.matches = 0; // To track matched pairs
     this.totalPairs = this.cardTargets.length / 2;
-
-    console.log(`Total pairs: ${this.totalPairs}`);
+    this.updateScore();
+    this.updateLeaderboard();
   }
 
   flip(event) {
     const card = event.currentTarget;
-    console.log("Card clicked:", card);
 
     // Prevent multiple clicks or locked cards
     if (this.lockBoard || card.classList.contains("flipped")) {
@@ -25,13 +24,11 @@ export default class extends Controller {
     }
 
     card.classList.add("flipped");
-    console.log("Card flipped:", card);
 
     this.flippedCards.push(card);
     this.incrementClickCounter(); // Increment clicks
 
     if (this.flippedCards.length === 2) {
-      console.log("Two cards flipped, checking for match...");
       this.checkForMatch();
     }
   }
@@ -39,8 +36,8 @@ export default class extends Controller {
 
   incrementClickCounter() {
     this.clicks += 1;
-    console.log(`Clicks incremented: ${this.clicks}`);
     this.clickCounterTarget.textContent = this.clicks; // Update the UI
+    this.updateScore();
   }
 
   checkForMatch() {
@@ -56,7 +53,6 @@ export default class extends Controller {
 
   handleMatch() {
     this.matches += 1;
-    console.log(`Match found! Total matches: ${this.matches}`);
     this.updateScore();
     this.resetFlippedCards();
 
@@ -81,9 +77,32 @@ export default class extends Controller {
   }
 
   updateScore() {
-    const score = Math.max(1000 - this.clicks * 10, 0); // Basic scoring logic
-    this.scoreTarget.textContent = score; // Update the UI
-  }
+    console.log("Updating score...");
+    console.log("Current scoreList:", this.scoreList);
+    const score = Math.max(1000 - this.clicks * 10, 0); // Calcola il punteggio
+    this.scoreTarget.textContent = score; // Aggiorna il punteggio nella UI
+    if (this.matches === this.totalPairs) {
+      this.scoreList.push(score);
+      console.log("Updated scoreList:", this.scoreList);
+      // Add the score to the score list
+      localStorage.setItem("leaderboard", JSON.stringify(this.scoreList)); // Save to localStorage
+      this.updateLeaderboard(); // Update the leaderboard
+    }// Aggiorna la leaderboard
+}
+
+updateLeaderboard() {
+  // Ordina i punteggi in ordine decrescente
+  const sortedScores = [...this.scoreList].sort((a, b) => b - a);
+
+  // Prendi i primi 5 punteggi per la leaderboard
+  const topScores = sortedScores.slice(0, 5);
+
+  // Aggiorna l'elemento leaderboard nella UI
+  this.leaderboardTarget.innerHTML = topScores
+    .map((score, index) => `<li>${index + 1}. ${score}</li>`)
+    .join("");
+}
+
 
  displayWinMessage() {
   console.log(`Game completed in ${this.clicks} clicks.`);

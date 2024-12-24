@@ -1,2 +1,18 @@
+<%# <div class="bounce-on-hover">
+  <div data-action="click->toggle#fire" class="wrap">
+    <div class="ball-container">
+      <div class="ball">
+       <div class="upper-half"></div>
+       <div class="lower-half"></div>
+       <div class="center-circle"></div>
+     </div>
+    </div>
+  </div>
 
-<%= render "components/card-memory", pokemons: @pokemons %>
+  <p>New game!</p>
+</div> %>
+
+<!-- Element to toggle -->
+<div data-toggle-target="togglableElemBis" class="d-block">
+  <%= render "components/card-memory", pokemons: @pokemons %>
+</div>

@@ -3,7 +3,12 @@ class PagesController < ApplicationController
   end
 
   def memory
-    @pokemons = Pokemon.limit(12)
-    @cards = (@pokemons + @pokemons).shuffle
+    @pokelist = Pokemon.all.sample(12) # Prendi tutti i Pokémon dal database e seleziona 12 casualmente
+    @cards = (@pokelist + @pokelist).shuffle # Crea il mazzo e lo mescola
   end
+
 end
+
+
+
+# @pokemons = Pokemon.sample.limit(12)
